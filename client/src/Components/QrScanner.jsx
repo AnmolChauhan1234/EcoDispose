@@ -15,21 +15,40 @@ const QrScanner = () => {
 
   const handleScan = (data) => {
     if (data) {
-      setScanResult(data);
-      setShowScanner(false); 
+      setScanResult("Scanned: " + data);
+      setShowScanner(false);
+      sendToBackend({ qrData: data });
     }
   };
 
-  const handleError = (err) => {
-    console.error(err);
+   const handleError = (err) => {
+    console.error("Scanner Error:", err);
   };
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    setFile(file);
-    if (file) {
-  
-      setScanResult("QR code file uploaded: " + file.name);
+    if (!file) return;
+
+    setScanResult("Uploaded: " + file.name);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    sendToBackend(formData, true);
+  };
+  const sendToBackend = async (payload, isFile = false) => {
+    try {
+      const response = await fetch("http://localhost:8000/api/analyze-image", {
+        method: "POST",
+        body: isFile ? payload : new URLSearchParams(payload),
+      });
+
+      if (!response.ok) throw new Error("Failed to get response");
+
+      const result = await response.json();
+      setScanResult("API Response: " + JSON.stringify(result));
+    } catch (error) {
+      console.error("API Error:", error);
+      setScanResult("Error: Failed to connect to server.");
     }
   };
 
