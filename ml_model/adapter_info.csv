@@ -1,0 +1,9 @@
+Brand,Model,Input_Voltage,Output_Voltage,Output_Current,Power_Wattage,Recycling_Symbol,Material_Code,Is_Recyclable
+HP,150W,100-240V~~50-60Hz,19.5V,7.7A,150,No,ABS,No
+OPPO,,100-240V~~50/60Hz,5V,4A,20,No,ABS,No
+Xiaomi,MDY-11-ER,100-240V~~50/60Hz,5V,3A/9V=2.2A/12V=1.67A,20,No,ABS,No
+Samsung,EP-TA20,100-240V~~50-60Hz,5V,2A,10,Yes,PP,Yes
+HP,65W,100-240V~~50-60Hz,19.5V,3.34A,65,Yes,PP,Yes
+Delta,,100-240V~~50/60Hz,19V,3.42A,65,No,ABS,No
+Realme,,100-240V~~50/60Hz,5V,2A or 10V=6.5A Max,20,No,ABS,No
+Samsung,,100-240V~~50/60Hz,5V,2A,10,Yes,PP,Yes

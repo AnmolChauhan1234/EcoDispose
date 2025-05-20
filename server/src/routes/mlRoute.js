@@ -19,7 +19,7 @@ router.post("/analyze-image", upload.single("image"), async (req, res) => {
   const filePath = req.file.path;
 
   // 🔁 Replace this with the ngrok URL from your Colab notebook
-  const colabURL = "https://abc123.ngrok.io/predict";
+  const colabURL = "http://127.0.0.1:5008/predict/analyze-image";
 
   const form = new FormData();
   form.append("image", fs.createReadStream(filePath));
